@@ -19,26 +19,20 @@ export default function Timer(props) {
 
   return (
     <div
+      className="center"
       style={{
         marginRight: "auto",
+        marginLeft: "2rem",
+        fontSize: "60px",
+        backgroundColor: "rgba(0, 0, 0, 0.80)",
+        padding: "1rem",
+        borderRadius: "50%",
+        boxShadow: "1px 1px 5px #ebebeb",
+        height: "150px",
+        width: "150px",
       }}
     >
-      <div
-        className="center"
-        style={{
-          fontSize: "24px",
-          margin: "2rem",
-          backgroundColor: "rgba(0, 0, 0, 0.80)",
-          color: "rgba(255, 255, 255, 0.80)",
-          padding: "1rem",
-          borderRadius: "10px",
-          boxShadow: "1px 1px 5px #ebebeb",
-          height: "60px",
-          width: "60px",
-        }}
-      >
-        {timer}
-      </div>
+      {timer}
     </div>
   );
 }

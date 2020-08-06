@@ -7,14 +7,13 @@ export default function Score(props) {
     <div
       className="center"
       style={{
-        fontSize: "24px",
+        fontSize: "32px",
         backgroundColor: "rgba(0, 0, 0, 0.80)",
-        color: "rgba(255, 255, 255, 0.80)",
         padding: "1rem",
         borderRadius: "10px",
         boxShadow: "1px 1px 5px #ebebeb",
-        height: "60px",
-        width: "160px",
+        height: "80px",
+        minWidth: "200px",
       }}
     >
       Score: &nbsp;<span style={{ color: "orange" }}>{userScore}</span>

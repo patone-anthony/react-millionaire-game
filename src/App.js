@@ -7,10 +7,8 @@ function App() {
   const [startGame, setStartGame] = useState(false);
 
   return (
-    <div className="App">
-      {startGame ? null : (
-        <Intro startGame={startGame} setStartGame={setStartGame} />
-      )}
+    <div className="App" style={{ position: "relative" }}>
+      {startGame ? null : <Intro startGame={startGame} setStartGame={setStartGame} />}
       <Game startGame={startGame} />
     </div>
   );
