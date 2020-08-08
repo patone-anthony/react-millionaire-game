@@ -1,7 +1,20 @@
 import React from "react";
 import AnswerCard from "./AnswerCard";
+const { questions } = require("../questions");
 
-export default function Question() {
+export default function Question(props) {
+  const {
+    currentIndex,
+    setCurrentIndex,
+    userScore,
+    setUserScore,
+    setTimer,
+    runGame,
+    setRunGame,
+    checkAnswer,
+    setCheckAnswer,
+  } = props;
+
   return (
     <div
       style={{
@@ -51,9 +64,19 @@ export default function Question() {
               borderLeft: "30px solid rgba(0, 0, 0, 0.80)",
             }}
           ></div>
-          <p>Question</p>
+          <p>{questions[currentIndex].question}</p>
         </div>
-        <AnswerCard />
+        <AnswerCard
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          userScore={userScore}
+          setUserScore={setUserScore}
+          setTimer={setTimer}
+          runGame={runGame}
+          setRunGame={setRunGame}
+          checkAnswer={checkAnswer}
+          setCheckAnswer={setCheckAnswer}
+        />
       </div>
     </div>
   );

@@ -6,12 +6,21 @@ import Question from "./Question";
 
 export default function Games(props) {
   const { startGame } = props;
+  const [runGame, setRunGame] = useState(true);
   const [runTimer, setRunTimer] = useState(true);
   const [timer, setTimer] = useState(30);
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [userScore, setUserScore] = useState(0);
+  const [checkAnswer, setCheckAnswer] = useState(false);
 
-  // Todo
-  // get current index of question, display question, highlight panel
+  /////// Todo ///////
+  // highlight incorect/correct
+
+  // make runGame state, when user selects answer change to false for 3 seconds
+  // stop timer, prevent button click
+
+  // pause game for 3 seconds for x seconds
+  // game over screen
 
   return (
     <div
@@ -40,15 +49,25 @@ export default function Games(props) {
             }}
           >
             <Timer
-              runTimer={runTimer}
-              setrunTimer={setRunTimer}
               timer={timer}
               setTimer={setTimer}
+              runGame={runGame}
+              setCheckAnswer={setCheckAnswer}
             />
-            <Score />
+            <Score userScore={userScore} />
             <QuestionPanel currentIndex={currentIndex} />
           </div>
-          <Question />
+          <Question
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+            setUserScore={setUserScore}
+            userScore={userScore}
+            setTimer={setTimer}
+            runGame={runGame}
+            setRunGame={setRunGame}
+            checkAnswer={checkAnswer}
+            setCheckAnswer={setCheckAnswer}
+          />
         </div>
       ) : null}
     </div>

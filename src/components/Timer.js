@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 
 export default function Timer(props) {
-  const { runTimer, setRunTimer } = props;
-  const { timer, setTimer } = props;
+  const { timer, setTimer, runGame, setCheckAnswer } = props;
 
   useEffect(() => {
-    if (runTimer && timer > 0) {
-      setTimeout(() => {
-        setTimer(timer - 1);
+    // move timer functionality to checkAnswer
+    let interval = null;
+    if (runGame && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((timer) => timer - 1);
       }, 1000);
-
-      if (!runTimer) {
-        setTimer(30);
-        setRunTimer(true);
-      }
+    } else {
+      setCheckAnswer(true);
     }
-  });
+
+    return () => clearInterval(interval);
+  }, [runGame, timer]);
 
   return (
     <div
@@ -36,3 +36,22 @@ export default function Timer(props) {
     </div>
   );
 }
+
+// useEffect(() => {
+//   if (timer > 0) {
+//     setTimeout(() => {
+//       setTimer((timer) => timer - 1);
+//     }, 1000);
+//   }
+// });
+
+// useEffect(() => {
+
+//   let interval = null;
+//   if (timer > 0) {
+//     interval = setInterval(() => {
+//       setTimer((timer) => timer - 1);
+//     }, 1000);
+//   }
+//   return () => clearInterval(interval);
+// }, [runGame, timer]);

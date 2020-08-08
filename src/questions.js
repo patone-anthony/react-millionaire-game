@@ -1,62 +1,59 @@
-const tempQuestions = [
+export const questions = [
   {
     id: 1,
     points: 100,
     question: "Which of the following countries banned the use of personal genetic ancestry tests?",
     correct_answer: "Germany",
-    incorrect_answers: ["Austria", "Canada", "Sweden"],
+    choices: ["Austria", "Canada", "Sweden", "Germany"],
   },
   {
     id: 2,
     points: 200,
-    question: "When was the United States National Security Agency established?",
-    correct_answer: "November 4, 1952",
-    incorrect_answers: ["July 26, 1908", " July 1, 1973", " November 25, 2002"],
+    question: "What is your favorite food",
+    correct_answer: "French Toast",
+    choices: ["Hot Dog", "French Toast", "Pizza", "Salad"],
   },
   {
     id: 3,
     points: 300,
     question: "Which of the following is NOT a real song from the band Thousand Foot Krutch?",
     correct_answer: "Limitless Fury",
-    incorrect_answers: ["Let The Sparks Fly", "Down", "Give Up The Ghost"],
+    choices: ["Let The Sparks Fly", "Down", "Give Up The Ghost", "Limitless Fury"],
   },
   {
     id: 4,
     points: 500,
-    question:
-      "In standard Monopoly, what&#039;s the rent if you land on Park Place with no houses?",
+    question: "In standard Monopoly, what is the rent if you land on Park Place with no houses?",
     correct_answer: "$35",
-    incorrect_answers: ["$30", "$50", "$45"],
+    choices: ["$30", "$50", "$45", "$35"],
   },
   {
     id: 5,
     points: 1000,
-    question:
-      "Which German city does the map &quot;Clubhouse&quot; in &quot;Tom Clancy&#039;s Rainbow Six Siege&quot; take place in?",
+    question: "Which German city does the map take place in?",
     correct_answer: "Hannover",
-    incorrect_answers: ["Berlin", "Hamburg", "Munich"],
+    choices: ["Berlin", "Hamburg", "Munich", "Hannover"],
   },
   {
     id: 6,
     points: 2000,
-    question:
-      "The metric prefix &quot;atto-&quot; makes a measurement how much smaller than the base unit?",
+    question: "The metric prefix  makes a measurement how much smaller than the base unit?",
     correct_answer: "One Quintillionth",
-    incorrect_answers: ["One Billionth", "One Quadrillionth", "One Septillionth"],
+    choices: ["One Billionth", "One Quadrillionth", "One Septillionth", "One Quintillionth"],
   },
   {
     id: 7,
     points: 4000,
     question: "What is the capital city of Bermuda?",
     correct_answer: "Hamilton",
-    incorrect_answers: ["Santo Dominigo", "San Juan", "Havana"],
+    choices: ["Santo Dominigo", "San Juan", "Havana", "Hamilton"],
   },
   {
     id: 8,
     points: 8000,
     question: "Not including false teeth; A human has two sets of teeth in their lifetime.",
-    correct_answer: "True",
-    incorrect_answers: ["False"],
+    correct_answer: "San Juan",
+    choices: ["Santo Dominigo", "San Juan", "Havana", "Hamilton"],
   },
   {
     id: 9,
@@ -64,7 +61,7 @@ const tempQuestions = [
     question:
       "What was the reason for the banning of episode 35 of the &quot;Pok&eacute;mon Original Series&quot; Anime?",
     correct_answer: "Gun Usage",
-    incorrect_answers: ["Flashing Images", "Jynx", "Strong Violence"],
+    choices: ["Flashing Images", "Jynx", "Strong Violence", "Gun Usage"],
   },
   {
     id: 10,
@@ -72,7 +69,7 @@ const tempQuestions = [
     question:
       "What year did the effort to deploy the Common Core State Standards (CCSS) in the US begin?",
     correct_answer: "2009",
-    incorrect_answers: ["2012", "2006", "1997"],
+    choices: ["2012", "2006", "1997", "2009"],
   },
   {
     id: 11,
@@ -80,7 +77,7 @@ const tempQuestions = [
     question:
       "What year did the effort to deploy the Common Core State Standards (CCSS) in the US begin?",
     correct_answer: "2009",
-    incorrect_answers: ["2012", "2006", "1997"],
+    choices: ["2012", "2006", "1997", "2009"],
   },
   {
     id: 12,
@@ -88,7 +85,7 @@ const tempQuestions = [
     question:
       "What year did the effort to deploy the Common Core State Standards (CCSS) in the US begin?",
     correct_answer: "2009",
-    incorrect_answers: ["2012", "2006", "1997"],
+    choices: ["2012", "2006", "1997", "2009"],
   },
   {
     id: 13,
@@ -96,7 +93,7 @@ const tempQuestions = [
     question:
       "What year did the effort to deploy the Common Core State Standards (CCSS) in the US begin?",
     correct_answer: "2009",
-    incorrect_answers: ["2012", "2006", "1997"],
+    choices: ["2012", "2006", "1997", "2009"],
   },
   {
     id: 14,
@@ -104,19 +101,16 @@ const tempQuestions = [
     question:
       "What year did the effort to deploy the Common Core State Standards (CCSS) in the US begin?",
     correct_answer: "2009",
-    incorrect_answers: ["2012", "2006", "1997"],
+    choices: ["2012", "2006", "1997", "2009"],
   },
   {
     id: 15,
     points: 1000000,
-    question:
-      "What year did the effort to deploy the Common Core State Standards (CCSS) in the US begin?",
-    correct_answer: "2009",
-    incorrect_answers: ["2012", "2006", "1997"],
+    question: "How long did the Middle Ages last",
+    correct_answer: "1000",
+    choices: ["100", "500", "1000", "2000"],
   },
 ];
-
-export const questions = tempQuestions.reverse();
 
 export default {
   questions,

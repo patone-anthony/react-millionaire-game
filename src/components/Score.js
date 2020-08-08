@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Score(props) {
-  const [userScore, setUserScore] = useState(0);
+  const { userScore } = props;
 
   return (
     <div
