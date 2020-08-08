@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 
 export default function Timer(props) {
-  const { timer, setTimer, runGame, setCheckAnswer } = props;
+  const { timer, setTimer, runGame, setRunGame } = props;
 
+  // change state
   useEffect(() => {
-    // move timer functionality to checkAnswer
     let interval = null;
     if (runGame && timer > 0) {
       interval = setInterval(() => {
         setTimer((timer) => timer - 1);
       }, 1000);
     } else {
-      setCheckAnswer(true);
+      setRunGame(false);
     }
 
     return () => clearInterval(interval);
-  }, [runGame, timer]);
+  });
 
   return (
     <div

@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Intro(props) {
-  const { setStartGame } = props;
-
+export default function GameOver(props) {
+  const { setStartGame, userScore, setUserScore } = props;
   const handleClick = () => {
     setStartGame(1);
+    setUserScore(0);
   };
 
   return (
@@ -33,17 +33,27 @@ export default function Intro(props) {
           marginTop: "-7rem",
         }}
       >
-        <h1 style={{ textAlign: "center", margin: "1rem" }}>
-          Welcome to GRO Who Wants to be a Millionaire!
-        </h1>
+        <h1 style={{ textAlign: "center", margin: "1rem" }}>Game Over!</h1>
         <br />
-        <p>
-          There are a total of 15 questions and you will be given 30 seconds to answer each
-          question.
-        </p>
+        <h3
+          style={{
+            textAlign: "center",
+            fontSize: "30px",
+          }}
+        >
+          Your score was <span style={{ color: "orange" }}>{userScore} points</span>!
+        </h3>
+
         <br />
         <br />
-        <p>When you're ready, press the start button to begin.</p>
+        <h6
+          style={{
+            textAlign: "center",
+            fontSize: "24px",
+          }}
+        >
+          Play again?
+        </h6>
         <br />
         <button
           className="startButton"
@@ -57,7 +67,7 @@ export default function Intro(props) {
             border: "none",
             display: "block",
             boxShadow: "1px 1px 5px #ebebeb",
-            fontSize: "24px",
+            fontSize: "18px",
             zIndex: "2",
             cursor: "pointer",
           }}

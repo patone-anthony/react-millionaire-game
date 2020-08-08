@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   color: white;
+  font-family: "Times New Roman", Times, serif;
 }
 
 body,
@@ -41,7 +42,7 @@ p {
 }
 
 .intro p {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .top-row {
@@ -58,20 +59,49 @@ p {
   color: orange;
 }
 
+/* hover */
+.nextButton:hover {
+  background-color: rgb(255, 140, 0) !important;
+  cursor: pointer;
+}
+
 .startButton:hover {
   background-color: rgb(24, 206, 0) !important;
   cursor: pointer;
 }
 
-.questionChoice:hover {
+.question-choice-hover:hover {
   background-color: rgb(0, 0, 0) !important;
   cursor: pointer;
 }
 
-.questionChoice:hover div:nth-of-type(2) {
+.question-choice-hover:hover div:nth-of-type(2) {
   border-right: 30px solid rgb(0, 0, 0) !important;
 }
 
-.questionChoice:hover div:nth-of-type(3) {
+.question-choice-hover:hover div:nth-of-type(3) {
   border-left: 30px solid rgb(0, 0, 0) !important;
+}
+/* end hover */
+
+.correct {
+  background-color: rgba(24, 206, 0, 0.85) !important;
+}
+
+.correct-left-triangle {
+  border-right: 30px solid rgba(24, 206, 0, 0.85) !important;
+}
+.correct-right-triangle {
+  border-left: 30px solid rgba(24, 206, 0, 0.85) !important;
+}
+
+.incorrect {
+  background-color: rgba(255, 0, 0, 0.85) !important;
+}
+
+.incorrect-left-triangle {
+  border-right: 30px solid rgba(255, 0, 0, 0.85) !important;
+}
+.incorrect-right-triangle {
+  border-left: 30px solid rgba(255, 0, 0, 0.85) !important;
 }

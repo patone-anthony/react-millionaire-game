@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 const { questions } = require("../questions");
 
 export default function QuestionPanel(props) {
-  const { currentIndex, userScore, setUserScore } = props;
+  const { currentIndex } = props;
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   const listItems = questions.map((question) => {
-    if (currentIndex + 1 == question.id) {
+    if (currentIndex + 1 === question.id) {
       return (
         <li style={{ fontWeight: "bold", background: "#f57b02", borderRadius: "3px" }}>
           <span style={{ color: "white" }}>{question.id}:&nbsp;</span>

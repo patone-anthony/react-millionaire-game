@@ -2,57 +2,43 @@ import React, { useEffect } from "react";
 const { questions } = require("../questions");
 
 export default function AnswerCard(props) {
-  const {
-    currentIndex,
-    setCurrentIndex,
-    userScore,
-    setUserScore,
-    setTimer,
-    timer,
-    runGame,
-    setRunGame,
-    checkAnswer,
-    setCheckAnswer,
-  } = props;
+  const { currentIndex, userScore, setUserScore, runGame, setRunGame, timer } = props;
 
-  setCheckAnswer(true, () => checkUserAnswer);
+  useEffect(() => {
+    if (timer === 0) {
+      checkUserAnswer();
+    }
+  });
 
   const checkUserAnswer = (e, userChoice) => {
-    // if run game is true
-    console.log(checkAnswer);
-
-    if (runGame && checkAnswer) {
-      //stop timer & prevent function from running again
+    e = e || null;
+    userChoice = userChoice || null;
+    if (runGame) {
+      // stop game
       setRunGame(false);
 
-      // check answer
-      if (timer > 0 && userChoice === questions[currentIndex].correct_answer) {
-        setUserScore(userScore + 10);
+      // remove hover from all answers
+      let items = document.querySelectorAll(".question-choice-hover");
+
+      for (let item of items) {
+        item.classList.remove("question-choice-hover");
       }
 
-      // highlight correct/incorrect answer
+      // correct answer
+      if (e && userChoice === questions[currentIndex].correct_answer) {
+        setUserScore(userScore + 10);
 
-      //   let interval = null;
-      //   if (timer > 0) {
-      //     interval = setInterval(() => {
-      //       setTimer((timer) => timer - 1);
-      //     }, 1000);
-      //   }
-      //   return () => clearInterval(interval);
-      // }, [runGame, timer]);
-
-      //wait 3 seconds
-      setTimeout(() => {
-        setCurrentIndex(currentIndex + 1);
-        setTimer(30);
-        setRunGame(true);
-      }, 3000);
-    }
-
-    // setCheckAnswer(false);
-    // if you reach index 15, stop game
-    if (currentIndex === 15) {
-      setRunGame(false);
+        // hightlight correct answer in green
+        e.currentTarget.classList.add("correct");
+        e.currentTarget.querySelector(".left-triangle").classList.add("correct-left-triangle");
+        e.currentTarget.querySelector(".right-triangle").classList.add("correct-right-triangle");
+      } else if (e && userChoice !== questions[currentIndex].correct_answer) {
+        // highlight incorrect answer in red
+        e.currentTarget.classList.add("incorrect");
+        e.currentTarget.querySelector(".left-triangle").classList.add("incorrect-left-triangle");
+        e.currentTarget.querySelector(".right-triangle").classList.add("incorrect-right-triangle");
+        // hightlight correct answer
+      }
     }
   };
 
@@ -69,10 +55,14 @@ export default function AnswerCard(props) {
         zIndex: "2",
       }}
     >
-      <div
+      <button
+        name="a"
         onClick={(e) => checkUserAnswer(e, questions[currentIndex].choices[0])}
-        className="questionChoice"
+        className="question-choice question-choice-hover"
+        disabled={!runGame}
         style={{
+          fontSize: "24px",
+          border: "none",
           backgroundColor: "rgba(0, 0, 0, 0.85)",
           width: "80%",
           position: "relative",
@@ -86,6 +76,7 @@ export default function AnswerCard(props) {
         <span style={{ color: "orange" }}>A:&nbsp;</span>
         <div className="user-answer">{questions[currentIndex].choices[0]}</div>
         <div
+          className="left-triangle left-triangle-hover "
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -99,6 +90,7 @@ export default function AnswerCard(props) {
           }}
         ></div>
         <div
+          className="right-triangle right-triangle-hover"
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -111,11 +103,15 @@ export default function AnswerCard(props) {
             borderLeft: "30px solid rgba(0, 0, 0, 0.85)",
           }}
         ></div>
-      </div>
-      <div
+      </button>
+      <button
+        name="b"
         onClick={(e) => checkUserAnswer(e, questions[currentIndex].choices[1])}
-        className="questionChoice"
+        className="question-choice question-choice-hover"
+        disabled={!runGame}
         style={{
+          fontSize: "24px",
+          border: "none",
           backgroundColor: "rgba(0, 0, 0, 0.85)",
           width: "80%",
           position: "relative",
@@ -129,6 +125,7 @@ export default function AnswerCard(props) {
         <span style={{ color: "orange" }}>B:&nbsp;</span>
         <div className="user-answer">{questions[currentIndex].choices[1]}</div>
         <div
+          className="left-triangle left-triangle-hover "
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -142,6 +139,7 @@ export default function AnswerCard(props) {
           }}
         ></div>
         <div
+          className="right-triangle right-triangle-hover"
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -154,11 +152,15 @@ export default function AnswerCard(props) {
             borderLeft: "30px solid rgba(0, 0, 0, 0.85)",
           }}
         ></div>
-      </div>
-      <div
+      </button>
+      <button
+        name="c"
         onClick={(e) => checkUserAnswer(e, questions[currentIndex].choices[2])}
-        className="questionChoice"
+        className="question-choice question-choice-hover"
+        disabled={!runGame}
         style={{
+          fontSize: "24px",
+          border: "none",
           backgroundColor: "rgba(0, 0, 0, 0.85)",
           width: "80%",
           position: "relative",
@@ -172,6 +174,7 @@ export default function AnswerCard(props) {
         <span style={{ color: "orange" }}>C:&nbsp;</span>
         <div className="user-answer">{questions[currentIndex].choices[2]}</div>
         <div
+          className="left-triangle left-triangle-hover "
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -185,6 +188,7 @@ export default function AnswerCard(props) {
           }}
         ></div>
         <div
+          className="right-triangle right-triangle-hover"
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -197,11 +201,15 @@ export default function AnswerCard(props) {
             borderLeft: "30px solid rgba(0, 0, 0, 0.85)",
           }}
         ></div>
-      </div>
-      <div
+      </button>
+      <button
+        name="d"
         onClick={(e) => checkUserAnswer(e, questions[currentIndex].choices[3])}
-        className="questionChoice"
+        className="question-choice question-choice-hover"
+        disabled={!runGame}
         style={{
+          fontSize: "24px",
+          border: "none",
           backgroundColor: "rgba(0, 0, 0, 0.85)",
           width: "80%",
           position: "relative",
@@ -214,6 +222,7 @@ export default function AnswerCard(props) {
         <span style={{ color: "orange" }}>D:&nbsp;</span>
         <div className="user-answer">{questions[currentIndex].choices[3]}</div>
         <div
+          className="left-triangle left-triangle-hover "
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -227,6 +236,7 @@ export default function AnswerCard(props) {
           }}
         ></div>
         <div
+          className="right-triangle right-triangle-hover"
           style={{
             color: "rgba(255, 255, 255, 0.85)",
             position: "absolute",
@@ -239,7 +249,7 @@ export default function AnswerCard(props) {
             borderLeft: "30px solid rgba(0, 0, 0, 0.85)",
           }}
         ></div>
-      </div>
+      </button>
     </div>
   );
 }
