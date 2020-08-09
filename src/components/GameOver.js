@@ -67,9 +67,9 @@ export default function GameOver(props) {
             border: "none",
             display: "block",
             boxShadow: "1px 1px 5px #ebebeb",
-            fontSize: "18px",
             zIndex: "2",
             cursor: "pointer",
+            fontSize: "22px",
           }}
         >
           Start

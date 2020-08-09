@@ -37,7 +37,22 @@ export default function AnswerCard(props) {
         e.currentTarget.classList.add("incorrect");
         e.currentTarget.querySelector(".left-triangle").classList.add("incorrect-left-triangle");
         e.currentTarget.querySelector(".right-triangle").classList.add("incorrect-right-triangle");
+
+        ////////////////////////////
         // hightlight correct answer
+        let correctAnswer = document
+          .evaluate(
+            `//button[contains(., "${questions[currentIndex].correct_answer}")]`,
+            document,
+            null,
+            XPathResult.ANY_TYPE,
+            null
+          )
+          .iterateNext();
+
+        correctAnswer.classList.add("correct");
+        correctAnswer.querySelector(".left-triangle").classList.add("correct-left-triangle");
+        correctAnswer.querySelector(".right-triangle").classList.add("correct-right-triangle");
       }
     }
   };

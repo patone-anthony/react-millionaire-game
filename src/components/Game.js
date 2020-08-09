@@ -10,9 +10,6 @@ export default function Games(props) {
   const [timer, setTimer] = useState(30);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  /////// Todo ///////
-  // highlight correct answer when incorrect answer is chosen
-
   return (
     <div
       style={{

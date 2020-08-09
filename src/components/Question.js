@@ -35,7 +35,7 @@ export default function Question(props) {
 
     // add back hover
     // remove hover from all answers
-    let hoverItems = document.querySelectorAll(".question-choice-hover");
+    let hoverItems = document.querySelectorAll(".question-choice");
 
     for (let hoverItem of hoverItems) {
       hoverItem.classList.add("question-choice-hover");
@@ -115,47 +115,78 @@ export default function Question(props) {
           />
         </div>
       </div>
+      {console.log(runGame, currentIndex)}
 
-      {!runGame ? (
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            justifyContent: "center",
-            zIndex: "3",
-            fontSize: "40px",
-            alignItems: "center",
-            height: "80px",
-          }}
-        >
-          <button
-            className="nextButton"
-            onClick={handleClick}
-            style={{
-              height: "50px",
-              width: "180px",
-              background: "rgba(250, 137, 0, 0.85)",
-              margin: "1rem Auto",
-              borderRadius: "10px",
-              border: "none",
-              display: "block",
-              boxShadow: "1px 1px 5px #ebebeb",
-              zIndex: "2",
-              cursor: "pointer",
-              fontSize: "22px",
-            }}
-          >
-            Next Question
-          </button>
-        </div>
-      ) : (
-        <div
-          style={{
-            height: "80px",
-            width: "100%",
-          }}
-        ></div>
-      )}
+      {/*  */}
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          justifyContent: "center",
+          zIndex: "3",
+          fontSize: "40px",
+          alignItems: "center",
+          height: "80px",
+        }}
+      >
+        {(() => {
+          if (!runGame && currentIndex < 14) {
+            console.log("inside conditional");
+            return (
+              <button
+                className="nextButton"
+                onClick={handleClick}
+                style={{
+                  height: "50px",
+                  width: "180px",
+                  background: "rgba(250, 137, 0, 0.85)",
+                  margin: "1rem Auto",
+                  borderRadius: "10px",
+                  border: "none",
+                  display: "block",
+                  boxShadow: "1px 1px 5px #ebebeb",
+                  zIndex: "2",
+                  cursor: "pointer",
+                  fontSize: "22px",
+                }}
+              >
+                Next Question
+              </button>
+            );
+          } else if (!runGame && currentIndex === 14) {
+            return (
+              <button
+                className="nextButton"
+                onClick={handleClick}
+                style={{
+                  height: "50px",
+                  width: "180px",
+                  background: "rgba(250, 137, 0, 0.85)",
+                  margin: "1rem Auto",
+                  borderRadius: "10px",
+                  border: "none",
+                  display: "block",
+                  boxShadow: "1px 1px 5px #ebebeb",
+                  zIndex: "2",
+                  cursor: "pointer",
+                  fontSize: "22px",
+                }}
+              >
+                Finish
+              </button>
+            );
+          } else {
+            return (
+              <div
+                style={{
+                  height: "80px",
+                  width: "100%",
+                }}
+              ></div>
+            );
+          }
+        })()}
+      </div>
     </div>
   );
 }
