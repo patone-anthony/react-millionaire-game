@@ -43,6 +43,9 @@ export default function Intro(props) {
         </p>
         <br />
         <br />
+        <p>Each question is worth 10 points.</p>
+        <br />
+        <br />
         <p>When you're ready, press the start button to begin.</p>
         <br />
         <button

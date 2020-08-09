@@ -9,6 +9,23 @@ export default function Games(props) {
   const [runGame, setRunGame] = useState(true);
   const [timer, setTimer] = useState(30);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [questionTracker, setQuestionTracker] = useState([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
 
   return (
     <div
@@ -38,7 +55,11 @@ export default function Games(props) {
           >
             <Timer timer={timer} setTimer={setTimer} runGame={runGame} setRunGame={setRunGame} />
             <Score userScore={userScore} />
-            <QuestionPanel currentIndex={currentIndex} />
+            <QuestionPanel
+              currentIndex={currentIndex}
+              questionTracker={questionTracker}
+              setQuestionTracker={setQuestionTracker}
+            />
           </div>
           <Question
             currentIndex={currentIndex}
@@ -51,6 +72,8 @@ export default function Games(props) {
             setRunGame={setRunGame}
             startGame={startGame}
             setStartGame={setStartGame}
+            questionTracker={questionTracker}
+            setQuestionTracker={setQuestionTracker}
           />
         </div>
       ) : null}

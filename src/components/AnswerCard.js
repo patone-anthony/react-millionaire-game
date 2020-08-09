@@ -2,7 +2,16 @@ import React, { useEffect } from "react";
 const { questions } = require("../questions");
 
 export default function AnswerCard(props) {
-  const { currentIndex, userScore, setUserScore, runGame, setRunGame, timer } = props;
+  const {
+    currentIndex,
+    userScore,
+    setUserScore,
+    runGame,
+    setRunGame,
+    timer,
+    questionTracker,
+    setQuestionTracker,
+  } = props;
 
   useEffect(() => {
     if (timer === 0) {
@@ -26,7 +35,13 @@ export default function AnswerCard(props) {
 
       // correct answer
       if (e && userChoice === questions[currentIndex].correct_answer) {
+        // update Score
         setUserScore(userScore + 10);
+
+        // update questionTracker
+        let newArr = [...questionTracker]; // copying the old datas array
+        newArr[currentIndex] = "&#10004;";
+        setQuestionTracker(newArr);
 
         // hightlight correct answer in green
         e.currentTarget.classList.add("correct");
@@ -37,6 +52,32 @@ export default function AnswerCard(props) {
         e.currentTarget.classList.add("incorrect");
         e.currentTarget.querySelector(".left-triangle").classList.add("incorrect-left-triangle");
         e.currentTarget.querySelector(".right-triangle").classList.add("incorrect-right-triangle");
+
+        // update questionTracker
+        let newArr = [...questionTracker]; // copying the old datas array
+        newArr[currentIndex] = "X";
+        setQuestionTracker(newArr);
+
+        ////////////////////////////
+        // hightlight correct answer
+        let correctAnswer = document
+          .evaluate(
+            `//button[contains(., "${questions[currentIndex].correct_answer}")]`,
+            document,
+            null,
+            XPathResult.ANY_TYPE,
+            null
+          )
+          .iterateNext();
+
+        correctAnswer.classList.add("correct");
+        correctAnswer.querySelector(".left-triangle").classList.add("correct-left-triangle");
+        correctAnswer.querySelector(".right-triangle").classList.add("correct-right-triangle");
+      } else if (timer === 0) {
+        // update questionTracker
+        let newArr = [...questionTracker]; // copying the old datas array
+        newArr[currentIndex] = "X";
+        setQuestionTracker(newArr);
 
         ////////////////////////////
         // hightlight correct answer

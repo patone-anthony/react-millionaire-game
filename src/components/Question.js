@@ -14,6 +14,8 @@ export default function Question(props) {
     setRunGame,
     setStartGame,
     startGame,
+    questionTracker,
+    setQuestionTracker,
   } = props;
 
   const handleClick = () => {
@@ -112,6 +114,8 @@ export default function Question(props) {
             runGame={runGame}
             setRunGame={setRunGame}
             timer={timer}
+            questionTracker={questionTracker}
+            setQuestionTracker={setQuestionTracker}
           />
         </div>
       </div>

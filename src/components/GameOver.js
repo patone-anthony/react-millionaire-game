@@ -41,7 +41,7 @@ export default function GameOver(props) {
             fontSize: "30px",
           }}
         >
-          Your score was <span style={{ color: "orange" }}>{userScore} points</span>!
+          You scored<span style={{ color: "orange" }}>{userScore} points</span>!
         </h3>
 
         <br />

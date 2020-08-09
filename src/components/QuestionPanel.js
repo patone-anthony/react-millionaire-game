@@ -1,34 +1,81 @@
 import React from "react";
-const { questions } = require("../questions");
 
 export default function QuestionPanel(props) {
-  const { currentIndex } = props;
+  const { currentIndex, questionTracker } = props;
 
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
-  const listItems = questions.map((question) => {
-    if (currentIndex + 1 === question.id) {
+  const listItems = questionTracker.map((question, index) => {
+    //current question
+    if (question === "" && index === currentIndex) {
       return (
-        <li style={{ fontWeight: "bold", background: "#f57b02", borderRadius: "3px" }}>
-          <span style={{ color: "white" }}>{question.id}:&nbsp;</span>
-          <span style={{ color: "black" }}>${numberWithCommas(question.points)}</span>
+        <li
+          style={{ fontWeight: "bold", background: "#f57b02", borderRadius: "3px", width: "100px" }}
+        >
+          <div style={{ width: "37px", textAlign: "right", color: "white" }}>
+            {index + 1}:&nbsp;
+          </div>
         </li>
       );
-    }
-    if (question.id === 1 || question.id === 5 || question.id === 10 || question.id === 15) {
+    } else if (question === "") {
+      // blank
       return (
-        <li>
-          <span style={{ color: "#fff" }}>
-            {question.id}:&nbsp;${numberWithCommas(question.points)}
-          </span>
+        <li style={{ width: "100px" }}>
+          <div style={{ color: "#fff", width: "100%" }}>
+            <div style={{ width: "37px", textAlign: "right" }}>{index + 1}:&nbsp;</div>
+            <div
+              style={{ width: "100%", textAlign: "center", color: "rgba(255, 0, 0, 0.85)" }}
+            ></div>
+          </div>
+        </li>
+      );
+    } else if (question === "X") {
+      // incorrect answer
+      return (
+        <li style={{ width: "100px" }}>
+          <div
+            style={{
+              height: "27px",
+              color: "#fff",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ width: "37px", textAlign: "right", alignItems: "center" }}>
+              {index + 1}:&nbsp;
+            </div>
+            <div
+              style={{
+                lineHeight: "27px",
+                height: "27px",
+                flex: "1",
+                textAlign: "center",
+                color: "rgba(255, 0, 0, 0.85)",
+              }}
+            >
+              &#10060;
+            </div>
+          </div>
         </li>
       );
     } else {
+      // correct answer
       return (
-        <li>
-          {question.id}:&nbsp;${numberWithCommas(question.points)}
+        <li style={{ width: "100px" }}>
+          <div style={{ color: "#fff", display: "flex", alignItems: "center" }}>
+            <div style={{ width: "37px", textAlign: "right" }}>{index + 1}:&nbsp;</div>
+            <div
+              style={{
+                lineHeight: "27px",
+                height: "27px",
+                flex: "1",
+                textAlign: "center",
+                color: "rgba(24, 206, 0, 0.85)",
+              }}
+            >
+              {" "}
+              &#10004;
+            </div>
+          </div>
         </li>
       );
     }
@@ -50,9 +97,10 @@ export default function QuestionPanel(props) {
         className="questionList"
         style={{
           listStyle: "none",
-          padding: "10px",
+          padding: "0 10px",
           display: "flex",
           flexDirection: "column-reverse",
+          width: "120px",
         }}
       >
         {listItems}
