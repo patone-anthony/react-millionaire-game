@@ -67,7 +67,7 @@ export const questions = [
   },
   {
     id: 11,
-    question: "In darts, what's the most ore with a single throw?",
+    question: "In darts, what's the most points you can score in a single throw?",
     correct_answer: "60",
     choices: ["20", "50", "60", "100"],
   },
