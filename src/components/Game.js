@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
 import Score from "./Score";
-import QuestionPanel from "./QuestionPanel";
+import QuestionPanelContainer from "./QuestionPanelContainer";
 import Question from "./Question";
 
-export default function Games(props) {
+export default function Game(props) {
   const { startGame, setStartGame, userScore, setUserScore } = props;
   const [runGame, setRunGame] = useState(true);
   const [timer, setTimer] = useState(30);
@@ -55,7 +55,7 @@ export default function Games(props) {
           >
             <Timer timer={timer} setTimer={setTimer} runGame={runGame} setRunGame={setRunGame} />
             <Score userScore={userScore} />
-            <QuestionPanel
+            <QuestionPanelContainer
               currentIndex={currentIndex}
               questionTracker={questionTracker}
               setQuestionTracker={setQuestionTracker}

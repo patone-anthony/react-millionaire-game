@@ -90,7 +90,6 @@ export default function AnswerCard(props) {
             null
           )
           .iterateNext();
-
         correctAnswer.classList.add("correct");
         correctAnswer.querySelector(".left-triangle").classList.add("correct-left-triangle");
         correctAnswer.querySelector(".right-triangle").classList.add("correct-right-triangle");

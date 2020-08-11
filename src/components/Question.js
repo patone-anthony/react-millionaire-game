@@ -13,7 +13,6 @@ export default function Question(props) {
     runGame,
     setRunGame,
     setStartGame,
-    startGame,
     questionTracker,
     setQuestionTracker,
   } = props;
@@ -51,7 +50,6 @@ export default function Question(props) {
       setCurrentIndex(currentIndex + 1);
       setTimer(30);
     }
-    console.log(startGame);
   };
 
   return (
@@ -72,6 +70,7 @@ export default function Question(props) {
           }}
         >
           <div
+            id="question-box"
             style={{
               fontSize: "24px",
               backgroundColor: "rgba(0, 0, 0, 0.80)",
@@ -82,6 +81,7 @@ export default function Question(props) {
             }}
           >
             <div
+              id="question-left-triangle"
               style={{
                 position: "absolute",
                 left: "-30px",
@@ -94,6 +94,7 @@ export default function Question(props) {
               }}
             ></div>
             <div
+              id="question-right-triangle"
               style={{
                 position: "absolute",
                 right: "-30px",
@@ -119,9 +120,6 @@ export default function Question(props) {
           />
         </div>
       </div>
-      {console.log(runGame, currentIndex)}
-
-      {/*  */}
       <div
         style={{
           display: "flex",
@@ -135,7 +133,6 @@ export default function Question(props) {
       >
         {(() => {
           if (!runGame && currentIndex < 14) {
-            console.log("inside conditional");
             return (
               <button
                 className="nextButton"

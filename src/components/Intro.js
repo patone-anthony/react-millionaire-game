@@ -21,6 +21,7 @@ export default function Intro(props) {
       }}
     >
       <div
+        className="intro-box"
         style={{
           flex: "column",
           width: "40%",
@@ -30,7 +31,7 @@ export default function Intro(props) {
           padding: "1rem  2rem 1rem 2rem",
           borderRadius: "20px",
           boxShadow: "1px 1px 5px #ebebeb",
-          marginTop: "-7rem",
+          // marginTop: "-7rem",
         }}
       >
         <h1 style={{ textAlign: "center", margin: "1rem" }}>

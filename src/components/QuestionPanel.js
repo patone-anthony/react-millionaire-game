@@ -2,6 +2,7 @@ import React from "react";
 
 export default function QuestionPanel(props) {
   const { currentIndex, questionTracker } = props;
+  console.log(questionTracker);
 
   const listItems = questionTracker.map((question, index) => {
     //current question
@@ -45,8 +46,8 @@ export default function QuestionPanel(props) {
             </div>
             <div
               style={{
-                lineHeight: "27px",
-                height: "27px",
+                lineHeight: "24px",
+                height: "24px",
                 flex: "1",
                 textAlign: "center",
                 color: "rgba(255, 0, 0, 0.85)",

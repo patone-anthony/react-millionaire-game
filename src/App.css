@@ -105,3 +105,9 @@ p {
 .incorrect-right-triangle {
   border-left: 30px solid rgba(255, 0, 0, 0.85) !important;
 }
+
+@media only screen and (max-width: 850px) {
+  .intro-box {
+    width: 80% !important;
+  }
+}
