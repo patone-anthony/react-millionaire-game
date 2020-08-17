@@ -9,7 +9,12 @@ export default function QuestionPanel(props) {
     if (question === "" && index === currentIndex) {
       return (
         <li
-          style={{ fontWeight: "bold", background: "#f57b02", borderRadius: "3px", width: "100px" }}
+          style={{
+            fontWeight: "bold",
+            background: "#f57b02",
+            borderRadius: "3px",
+            width: "100px",
+          }}
         >
           <div style={{ width: "37px", textAlign: "right", color: "white" }}>
             {index + 1}:&nbsp;
@@ -21,9 +26,15 @@ export default function QuestionPanel(props) {
       return (
         <li style={{ width: "100px" }}>
           <div style={{ color: "#fff", width: "100%" }}>
-            <div style={{ width: "37px", textAlign: "right" }}>{index + 1}:&nbsp;</div>
+            <div style={{ width: "37px", textAlign: "right" }}>
+              {index + 1}:&nbsp;
+            </div>
             <div
-              style={{ width: "100%", textAlign: "center", color: "rgba(255, 0, 0, 0.85)" }}
+              style={{
+                width: "100%",
+                textAlign: "center",
+                color: "rgba(255, 0, 0, 0.85)",
+              }}
             ></div>
           </div>
         </li>
@@ -41,7 +52,13 @@ export default function QuestionPanel(props) {
               alignItems: "center",
             }}
           >
-            <div style={{ width: "37px", textAlign: "right", alignItems: "center" }}>
+            <div
+              style={{
+                width: "37px",
+                textAlign: "right",
+                alignItems: "center",
+              }}
+            >
               {index + 1}:&nbsp;
             </div>
             <div
@@ -63,7 +80,9 @@ export default function QuestionPanel(props) {
       return (
         <li style={{ width: "100px" }}>
           <div style={{ color: "#fff", display: "flex", alignItems: "center" }}>
-            <div style={{ width: "37px", textAlign: "right" }}>{index + 1}:&nbsp;</div>
+            <div style={{ width: "37px", textAlign: "right" }}>
+              {index + 1}:&nbsp;
+            </div>
             <div
               style={{
                 lineHeight: "27px",

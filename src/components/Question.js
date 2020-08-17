@@ -53,7 +53,9 @@ export default function Question(props) {
   };
 
   return (
-    <div style={{ flex: "1", display: "flex", width: "100%", flexWrap: "wrap" }}>
+    <div
+      style={{ flex: "1", display: "flex", width: "100%", flexWrap: "wrap" }}
+    >
       <div
         style={{
           display: "flex",
