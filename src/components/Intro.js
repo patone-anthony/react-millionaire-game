@@ -35,12 +35,12 @@ export default function Intro(props) {
         }}
       >
         <h1 style={{ textAlign: "center", margin: "1rem" }}>
-          Welcome to GRO Who Wants to be a Millionaire!
+          Welcome to Who Wants to be a Millionaire!
         </h1>
         <br />
         <p>
-          There are a total of 15 questions and you will be given 30 seconds to answer each
-          question.
+          There are a total of 15 questions and you will be given 30 seconds to
+          answer each question.
         </p>
         <br />
         <br />
