@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function QuestionPanel(props) {
+export default function QuestionPanelMedium(props) {
   const { currentIndex, questionTracker } = props;
   console.log(questionTracker);
 
@@ -14,6 +14,7 @@ export default function QuestionPanel(props) {
             background: "#f57b02",
             borderRadius: "3px",
             width: "100px",
+            height: "23px",
           }}
         >
           <div style={{ width: "37px", textAlign: "right", color: "white" }}>
@@ -24,7 +25,7 @@ export default function QuestionPanel(props) {
     } else if (question === "") {
       // blank
       return (
-        <li style={{ width: "100px" }}>
+        <li style={{ width: "100px", height: "23px" }}>
           <div style={{ color: "#fff", width: "100%" }}>
             <div style={{ width: "37px", textAlign: "right" }}>
               {index + 1}:&nbsp;
@@ -42,14 +43,15 @@ export default function QuestionPanel(props) {
     } else if (question === "X") {
       // incorrect answer
       return (
-        <li style={{ width: "100px" }}>
+        <li style={{ width: "100px", height: "23px" }}>
           <div
             style={{
-              height: "27px",
+              // height: "18px", // x height
               color: "#fff",
               width: "100%",
               display: "flex",
               alignItems: "center",
+              margin: "1px 0px",
             }}
           >
             <div
@@ -63,11 +65,12 @@ export default function QuestionPanel(props) {
             </div>
             <div
               style={{
-                lineHeight: "24px",
-                height: "24px",
+                lineHeight: "16px",
+                height: "16px",
                 flex: "1",
                 textAlign: "center",
                 color: "rgba(255, 0, 0, 0.85)",
+                margin: "1px",
               }}
             >
               &#10060;
@@ -78,15 +81,15 @@ export default function QuestionPanel(props) {
     } else {
       // correct answer
       return (
-        <li style={{ width: "100px" }}>
+        <li style={{ width: "100px", height: "23px" }}>
           <div style={{ color: "#fff", display: "flex", alignItems: "center" }}>
             <div style={{ width: "37px", textAlign: "right" }}>
               {index + 1}:&nbsp;
             </div>
             <div
               style={{
-                lineHeight: "27px",
-                height: "27px",
+                lineHeight: "20px",
+                height: "20px",
                 flex: "1",
                 textAlign: "center",
                 color: "rgba(24, 206, 0, 0.85)",
@@ -104,7 +107,7 @@ export default function QuestionPanel(props) {
   return (
     <div
       style={{
-        fontSize: "24px",
+        fontSize: "18px",
         backgroundColor: "rgba(0, 0, 0, 0.80)",
         color: "rgba(255, 255, 255, 0.80)",
         padding: "1rem",

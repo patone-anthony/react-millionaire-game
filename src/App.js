@@ -5,7 +5,7 @@ import Game from "./components/Game";
 import GameOver from "./components/GameOver";
 
 // To do
-// fix question panel (x and check marks)
+// fix sizing
 
 function App() {
   const [startGame, setStartGame] = useState(0);

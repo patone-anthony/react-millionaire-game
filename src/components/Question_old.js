@@ -79,11 +79,36 @@ export default function Question(props) {
               backgroundColor: "rgba(0, 0, 0, 0.80)",
               padding: "1rem",
               textAlign: "center",
-              minHeight: "60px",
+              height: "60px",
               position: "relative",
-              borderRadius: "20px",
             }}
           >
+            <div
+              id="question-left-triangle"
+              style={{
+                position: "absolute",
+                left: "-30px",
+                top: "0px",
+                width: "0",
+                height: "0",
+                borderTop: "30px solid transparent",
+                borderBottom: "30px solid transparent",
+                borderRight: "30px solid rgba(0, 0, 0, 0.80)",
+              }}
+            ></div>
+            <div
+              id="question-right-triangle"
+              style={{
+                position: "absolute",
+                right: "-30px",
+                top: "0px",
+                width: "0",
+                height: "0",
+                borderTop: "30px solid transparent",
+                borderBottom: "30px solid transparent",
+                borderLeft: "30px solid rgba(0, 0, 0, 0.80)",
+              }}
+            ></div>
             <p>{questions[currentIndex].question || null}</p>
           </div>
           <AnswerCard

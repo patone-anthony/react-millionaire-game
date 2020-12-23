@@ -29,6 +29,7 @@ export default function Game(props) {
 
   return (
     <div
+    className="game"
       style={{
         height: "100%",
         width: "100%",
